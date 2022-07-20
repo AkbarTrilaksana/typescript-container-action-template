@@ -1,0 +1,66 @@
+{
+  "name": "typescript-container-action-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Template to create a GitHub container action in Node.js with TypeScript",
+  "author": "kevinpollet <pollet.kevin@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/kevinpollet/typescript-container-action-template#readme",
+  "bugs": "https://github.com/kevinpollet/typescript-container-action-template/issues",
+  "repository": "github:kevinpollet/typescript-container-action-template",
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "github-action"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && tsc --project tsconfig.build.json",
+    "format": "prettier --write '{src,test,.github}/**/*' '*.{json,md,yml}'",
+    "lint": "eslint '{src,test}/**/*'",
+    "test": "jest --preset ts-jest"
+  },
+  "dependencies": {
+    "@actions/core": "1.2.4"
+  },
+  "devDependencies": {
+    "@kevinpollet/tsconfig": "0.1.0",
+    "@types/jest": "25.2.1",
+    "@types/node": "12.12.38",
+    "@typescript-eslint/eslint-plugin": "2.31.0",
+    "@typescript-eslint/parser": "2.31.0",
+    "eslint": "7.0.0",
+    "eslint-config-prettier": "6.11.0",
+    "husky": "4.2.5",
+    "jest": "25.5.4",
+    "lint-staged": "10.2.2",
+    "prettier": "2.0.5",
+    "ts-jest": "25.5.1",
+    "typescript": "3.8.3"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "tsconfig.json"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{json,ts,md,yml}": [
+      "prettier --write"
+    ]
+  }
+}

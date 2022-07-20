@@ -1,0 +1,13 @@
+name: TypeScript Container Action Template
+description: Template to create a GitHub container action in Node.js with TypeScript
+author: kevinpollet <pollet.kevin@gmail.com>
+branding:
+  icon: book-open
+  color: blue
+inputs:
+  name:
+    required: true
+    description: Name to greet
+runs:
+  using: docker
+  image: Dockerfile
